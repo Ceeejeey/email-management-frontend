@@ -1,6 +1,10 @@
 # Stage 1: Build the React app
 FROM node:22-alpine3.21 AS build
 
+# Accept API URL at build time
+ARG VITE_API_URL
+ENV VITE_API_URL=$VITE_API_URL
+
 # Set working directory
 WORKDIR /app
 
