@@ -31,9 +31,11 @@ const ProfilePage = () => {
 
   const handleConnectGoogle = async () => {
     try {
-      const response = await axios.get('/api/auth/google', { withCredentials: true });
+      // Changed endpoint to /init to bust cache
+      const response = await axios.get(`/api/auth/google/init?t=${new Date().getTime()}`, { withCredentials: true });
   
       if (response.data.authUrl) {
+        console.log('RECEIVED AUTH URL:', response.data.authUrl); // Debug log
         window.location.href = response.data.authUrl;
       } else {
         console.error('No authUrl provided in the response');
