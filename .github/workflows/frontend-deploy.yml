@@ -57,27 +57,27 @@ jobs:
 
       # Configure Artifact Registry
       - name: Configure Docker
-        run: gcloud auth configure-docker asia-south1-docker.pkg.dev
+        run: gcloud auth configure-docker asia-southeast1-docker.pkg.dev
 
       # Build Docker Image (WITH BUILD ARGS)
       - name: Build Docker image
         run: |
           docker build \
             --build-arg VITE_API_URL=${{ secrets.VITE_API_URL }} \
-            -t asia-south1-docker.pkg.dev/email-management-449416/email-frontend-repo/email-frontend:latest .
+            -t asia-southeast1-docker.pkg.dev/email-management-449416/email-frontend-repo/email-frontend:latest .
 
       # Push Docker Image
       - name: Push Docker image
         run: |
-          docker push asia-south1-docker.pkg.dev/email-management-449416/email-frontend-repo/email-frontend:latest
+          docker push asia-southeast1-docker.pkg.dev/email-management-449416/email-frontend-repo/email-frontend:latest
 
       # Deploy to Cloud Run
       - name: Deploy to Cloud Run
         run: |
           gcloud run deploy email-frontend \
-            --image=asia-south1-docker.pkg.dev/email-management-449416/email-frontend-repo/email-frontend:latest \
+            --image=asia-southeast1-docker.pkg.dev/email-management-449416/email-frontend-repo/email-frontend:latest \
             --platform=managed \
-            --region=asia-south1 \
+            --region=asia-southeast1 \
             --allow-unauthenticated \
             --port=80 \
             --service-account=767837784755-compute@developer.gserviceaccount.com \
