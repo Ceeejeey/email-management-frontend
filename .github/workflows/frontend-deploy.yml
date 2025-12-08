@@ -79,6 +79,5 @@ jobs:
             --platform=managed \
             --region=asia-southeast1 \
             --allow-unauthenticated \
-            --port=80 \
-            --service-account=767837784755-compute@developer.gserviceaccount.com \
-            --set-env-vars=VITE_API_URL=${{ secrets.VITE_API_URL }}
+            --port=80
+
