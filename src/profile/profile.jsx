@@ -63,12 +63,12 @@ const ProfilePage = () => {
 
   return (
     <div className="min-h-screen bg-dark-bg text-gray-100 p-4 md:p-8 flex justify-center">
-      <div className="bg-card-bg p-8 rounded-2xl shadow-2xl max-w-2xl w-full border border-gray-800">
-        <div className="flex justify-between items-center mb-8">
+      <div className="bg-card-bg p-6 md:p-8 rounded-2xl shadow-2xl max-w-3xl w-full border border-gray-800">
+        <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
           <h1 className="text-3xl font-bold text-gold">User Profile</h1>
           <button 
             onClick={() => navigate('/dashboard')}
-            className="text-gray-400 hover:text-white transition-colors"
+            className="text-gray-400 hover:text-white transition-colors bg-gray-800/50 px-4 py-2 rounded-lg hover:bg-gray-800"
           >
             Back to Dashboard
           </button>

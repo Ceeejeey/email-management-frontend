@@ -161,27 +161,27 @@ const GroupsManager = () => {
 
       {/* Groups List */}
       <div className="overflow-x-auto">
-        <table className="w-full text-left border-collapse">
+        <table className="w-full text-left border-collapse min-w-[700px]">
           <thead>
             <tr className="border-b border-gray-700">
-              <th className="p-4 text-gold font-semibold">Group Name</th>
-              <th className="p-4 text-gold font-semibold">Description</th>
-              <th className="p-4 text-gold font-semibold">Contacts</th>
-              <th className="p-4 text-gold font-semibold text-right">Actions</th>
+              <th className="p-3 md:p-4 text-gold font-semibold">Group Name</th>
+              <th className="p-3 md:p-4 text-gold font-semibold">Description</th>
+              <th className="p-3 md:p-4 text-gold font-semibold">Contacts</th>
+              <th className="p-3 md:p-4 text-gold font-semibold text-right">Actions</th>
             </tr>
           </thead>
           <tbody>
             {groups.length > 0 ? (
               groups.map((group) => (
                 <tr key={group.id} className="border-b border-gray-800 hover:bg-gray-800/50 transition-colors">
-                  <td className="p-4 text-gray-300">{group.name}</td>
-                  <td className="p-4 text-gray-300">{group.description || 'No description'}</td>
-                  <td className="p-4 text-gray-300">
+                  <td className="p-3 md:p-4 text-gray-300">{group.name}</td>
+                  <td className="p-3 md:p-4 text-gray-300">{group.description || 'No description'}</td>
+                  <td className="p-3 md:p-4 text-gray-300">
                     {group.contacts && group.contacts.length > 0
                       ? group.contacts.map((c) => c.name).join(', ')
                       : 'No contacts'}
                   </td>
-                  <td className="p-4 text-right space-x-2">
+                  <td className="p-3 md:p-4 text-right space-x-2 whitespace-nowrap">
                     <button 
                       onClick={() => handleEditGroup(group)}
                       className="text-blue-400 hover:text-blue-300 transition-colors px-2 py-1"
@@ -213,8 +213,8 @@ const GroupsManager = () => {
         isOpen={isModalOpen}
         onRequestClose={closeModal}
         contentLabel="Group Modal"
-        className="bg-card-bg p-6 rounded-xl shadow-2xl border border-gray-700 max-w-lg w-full mx-auto mt-20 outline-none"
-        overlayClassName="fixed inset-0 bg-black/70 flex justify-center items-start z-50"
+        className="bg-card-bg p-4 md:p-6 rounded-xl shadow-2xl border border-gray-700 max-w-lg w-full mx-auto mt-10 md:mt-20 outline-none"
+        overlayClassName="fixed inset-0 bg-black/70 flex justify-center items-start z-50 p-4 overflow-y-auto"
       >
         <h2 className="text-2xl font-bold text-gold mb-4">{editGroupId ? 'Edit Group' : 'Create Group'}</h2>
         

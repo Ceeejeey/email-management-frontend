@@ -81,22 +81,22 @@ const ContactsManager = () => {
         </button>
       </div>
 
-      <div className="overflow-x-auto">
-        <table className="w-full text-left border-collapse">
+            <div className="overflow-x-auto">
+        <table className="w-full text-left border-collapse min-w-[600px]">
           <thead>
             <tr className="border-b border-gray-700">
-              <th className="p-4 text-gold font-semibold">Name</th>
-              <th className="p-4 text-gold font-semibold">Email</th>
-              <th className="p-4 text-gold font-semibold text-right">Actions</th>
+              <th className="p-3 md:p-4 text-gold font-semibold">Name</th>
+              <th className="p-3 md:p-4 text-gold font-semibold">Email</th>
+              <th className="p-3 md:p-4 text-gold font-semibold text-right">Actions</th>
             </tr>
           </thead>
           <tbody>
             {contacts.length > 0 ? (
               contacts.map((contact) => (
                 <tr key={contact.id} className="border-b border-gray-800 hover:bg-gray-800/50 transition-colors">
-                  <td className="p-4 text-gray-300">{contact.name}</td>
-                  <td className="p-4 text-gray-300">{contact.email}</td>
-                  <td className="p-4 text-right space-x-2">
+                  <td className="p-3 md:p-4 text-gray-300">{contact.name}</td>
+                  <td className="p-3 md:p-4 text-gray-300">{contact.email}</td>
+                  <td className="p-3 md:p-4 text-right space-x-2 whitespace-nowrap">
                     <button 
                       onClick={() => handleEditContact(contact)}
                       className="text-blue-400 hover:text-blue-300 transition-colors px-2 py-1"
@@ -115,7 +115,7 @@ const ContactsManager = () => {
             ) : (
               <tr>
                 <td colSpan="3" className="p-8 text-center text-gray-500">
-                  No contacts available.
+                  No contacts found. Start by adding one above!
                 </td>
               </tr>
             )}

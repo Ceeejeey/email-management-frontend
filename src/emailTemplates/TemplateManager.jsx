@@ -162,7 +162,7 @@ const TemplateManager = () => {
       {/* Drag-and-Drop File Upload */}
       <div className="mb-6 space-y-4">
         <div
-          className="border-2 border-dashed border-gray-600 rounded-lg p-8 text-center cursor-pointer hover:border-gold hover:bg-gray-800/50 transition-colors text-gray-400"
+          className="border-2 border-dashed border-gray-600 rounded-lg p-4 md:p-8 text-center cursor-pointer hover:border-gold hover:bg-gray-800/50 transition-colors text-gray-400"
           onDragOver={(e) => e.preventDefault()}
           onDrop={(e) => {
             e.preventDefault();
@@ -209,19 +209,19 @@ const TemplateManager = () => {
 
       {/* Templates Table */}
       <div className="overflow-x-auto">
-        <table className="w-full text-left border-collapse">
+        <table className="w-full text-left border-collapse min-w-[500px]">
           <thead>
             <tr className="border-b border-gray-700">
-              <th className="p-4 text-gold font-semibold">Template Name</th>
-              <th className="p-4 text-gold font-semibold text-right">Actions</th>
+              <th className="p-3 md:p-4 text-gold font-semibold">Template Name</th>
+              <th className="p-3 md:p-4 text-gold font-semibold text-right">Actions</th>
             </tr>
           </thead>
           <tbody>
             {templates.length > 0 ? (
               templates.map((template) => (
                 <tr key={template.id} className="border-b border-gray-800 hover:bg-gray-800/50 transition-colors">
-                  <td className="p-4 text-gray-300">{template.name}</td>
-                  <td className="p-4 text-right space-x-2">
+                  <td className="p-3 md:p-4 text-gray-300">{template.name}</td>
+                  <td className="p-3 md:p-4 text-right space-x-2 whitespace-nowrap">
                     <button 
                       onClick={() => handleEditTemplate(template)} 
                       className="text-blue-400 hover:text-blue-300 transition-colors px-2 py-1"

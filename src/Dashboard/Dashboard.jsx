@@ -7,13 +7,14 @@ import { useNavigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useUserProfile } from '../utils/queries';
-import { Users, Layers, FileText, User, LogOut } from 'lucide-react';
+import { Users, Layers, FileText, User, LogOut, Menu } from 'lucide-react';
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState('contacts');
   const [accessToken, setAccessToken] = useState('');
   const [showDropdown, setShowDropdown] = useState(false);
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const dropdownRef = useRef(null);
 
   const navigate = useNavigate();
@@ -51,12 +52,22 @@ const Dashboard = () => {
     setIsSidebarCollapsed(!isSidebarCollapsed);
   };
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
     <div className="h-screen bg-dark-bg text-gray-100 flex flex-col overflow-hidden">
        <ToastContainer theme="dark" /> 
       {/* Navbar */}
       <nav className="bg-card-bg shadow-md p-4 flex justify-between items-center border-b border-gray-800 z-20 shrink-0">
         <div className="flex items-center gap-4">
+          <button 
+            className="md:hidden p-2 text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-colors"
+            onClick={toggleMobileMenu}
+          >
+            <Menu size={24} />
+          </button>
           <h1 className="text-2xl font-bold text-gold">Dashboard</h1>
         </div>
         
@@ -115,9 +126,14 @@ const Dashboard = () => {
         {/* Sidebar Component */}
         <Sidebar 
           activeTab={activeTab} 
-          setActiveTab={setActiveTab} 
+          setActiveTab={(tab) => {
+            setActiveTab(tab);
+            setIsMobileMenuOpen(false);
+          }}
           isCollapsed={isSidebarCollapsed} 
-          toggleSidebar={toggleSidebar} 
+          toggleSidebar={toggleSidebar}
+          isMobileMenuOpen={isMobileMenuOpen}
+          setIsMobileMenuOpen={setIsMobileMenuOpen}
         />
 
         {/* Mobile Tab Bar (Visible only on small screens) */}
@@ -146,7 +162,15 @@ const Dashboard = () => {
         </div>
 
         {/* Main Content */}
-        <main className="flex-1 overflow-y-auto p-4 md:p-8 pb-24 md:pb-8 w-full">
+        <main className="flex-1 overflow-y-auto p-4 md:p-8 pb-24 md:pb-8 w-full relative">
+          {/* Overlay for mobile when sidebar is open */}
+          {isMobileMenuOpen && (
+            <div 
+              className="fixed inset-0 bg-black/50 z-30 md:hidden"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+          )}
+
           <div className="max-w-7xl mx-auto h-full">
             {activeTab === 'contacts' && <ContactsManager />}
 
