@@ -64,51 +64,7 @@ const SignInPage = () => {
           Sign in with Google
         </button>
 
-        <div className="relative flex py-5 items-center">
-          <div className="flex-grow border-t border-gray-700"></div>
-          <span className="flex-shrink mx-4 text-gray-500">Or continue with email</span>
-          <div className="flex-grow border-t border-gray-700"></div>
-        </div>
-
-        <form onSubmit={handleEmailSignIn} className="space-y-6">
-          <div>
-            <label className="block text-sm font-medium text-gray-400 mb-2">Email Address</label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="w-full px-4 py-3 bg-dark-bg border border-gray-700 rounded-lg focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold text-white placeholder-gray-500 transition-colors"
-              placeholder="name@company.com"
-            />
-          </div>
-          
-          <div>
-            <label className="block text-sm font-medium text-gray-400 mb-2">Password</label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              className="w-full px-4 py-3 bg-dark-bg border border-gray-700 rounded-lg focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold text-white placeholder-gray-500 transition-colors"
-              placeholder="••••••••"
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="w-full bg-gold text-dark-bg font-bold py-3 px-4 rounded-lg hover:bg-gold-hover transition-colors shadow-lg mt-2"
-          >
-            Sign In
-          </button>
-        </form>
-        
-        <p className="mt-6 text-center text-gray-400">
-          Don't have an account?{' '}
-          <button onClick={() => setIsSignUp(true)} className="text-gold hover:underline font-medium">
-            Sign Up
-          </button>
-        </p>
+        {message && <p className={`mt-6 text-center text-sm ${isLoading ? 'text-gray-400' : 'text-gold'}`}>{message}</p>}
       </div>
     </div>
   );
