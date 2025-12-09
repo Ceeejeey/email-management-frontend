@@ -289,11 +289,6 @@ const TemplateManager = () => {
           </div>
         )}
       </div>
-    </div>
-  );
-};
-
-export default TemplateManager;
 
       {isSendModalOpen && (
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
