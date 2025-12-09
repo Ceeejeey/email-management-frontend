@@ -213,8 +213,8 @@ const GroupsManager = () => {
         isOpen={isModalOpen}
         onRequestClose={closeModal}
         contentLabel="Group Modal"
-        className="bg-card-bg p-4 md:p-6 rounded-xl shadow-2xl border border-gray-700 max-w-lg w-full mx-auto mt-10 md:mt-20 outline-none"
-        overlayClassName="fixed inset-0 bg-black/70 flex justify-center items-start z-50 p-4 overflow-y-auto"
+        className="bg-card-bg p-4 md:p-6 rounded-xl shadow-2xl border border-gray-700 max-w-lg w-full mx-auto mt-4 md:mt-20 outline-none max-h-[90vh] overflow-y-auto"
+        overlayClassName="fixed inset-0 bg-black/70 flex justify-center items-start z-50 p-4"
       >
         <h2 className="text-2xl font-bold text-gold mb-4">{editGroupId ? 'Edit Group' : 'Create Group'}</h2>
         

@@ -257,7 +257,7 @@ const TemplateManager = () => {
           <div className="bg-card-bg rounded-2xl shadow-2xl w-full max-w-5xl h-[90vh] flex flex-col md:flex-row overflow-hidden border border-gray-800">
 
             {/* Left Column: Email Content & Selected Recipients */}
-            <div className="flex-1 p-6 border-b md:border-b-0 md:border-r border-gray-700 overflow-y-auto">
+            <div className="flex-1 p-4 md:p-6 border-b md:border-b-0 md:border-r border-gray-700 overflow-y-auto">
               <h3 className="text-xl font-bold text-gold mb-4">Send Email</h3>
 
               <div className="space-y-4">
@@ -273,12 +273,12 @@ const TemplateManager = () => {
                   placeholder="Email Body"
                   value={emailBody}
                   onChange={(e) => setEmailBody(e.target.value)}
-                  className="w-full h-64 bg-dark-bg border border-gray-700 rounded-lg p-3 text-white focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors font-mono text-sm"
+                  className="w-full h-40 md:h-64 bg-dark-bg border border-gray-700 rounded-lg p-3 text-white focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors font-mono text-sm"
                 />
 
                 <div>
                   <h4 className="text-gray-400 font-medium mb-2">Selected Recipients:</h4>
-                  <div className="flex flex-wrap gap-2 max-h-32 overflow-y-auto p-2 bg-dark-bg rounded-lg border border-gray-700">
+                  <div className="flex flex-wrap gap-2 max-h-24 md:max-h-32 overflow-y-auto p-2 bg-dark-bg rounded-lg border border-gray-700">
                     {selectedRecipients.length > 0 ? (
                       selectedRecipients.map((contact) => (
                         <span key={contact.email} className="bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs flex items-center gap-1">
@@ -295,7 +295,7 @@ const TemplateManager = () => {
             </div>
 
             {/* Right Column: Contacts & Groups Selection */}
-            <div className="w-full md:w-80 p-6 bg-gray-900/50 flex flex-col h-full">
+            <div className="w-full md:w-80 p-4 md:p-6 bg-gray-900/50 flex flex-col h-1/2 md:h-full border-t md:border-t-0 border-gray-700">
               <div className="flex-1 overflow-y-auto space-y-6 pr-2">
                 {/* Contacts Selection */}
                 <div>
@@ -336,7 +336,7 @@ const TemplateManager = () => {
               </div>
 
               {/* Buttons */}
-              <div className="mt-6 flex flex-col gap-3 pt-4 border-t border-gray-700">
+              <div className="mt-4 flex flex-col gap-3 pt-4 border-t border-gray-700 shrink-0">
                 <button 
                   onClick={() => handleSendEmail(selectedRecipients.map((c) => c.email), emailSubject, emailBody)}
                   className="w-full bg-gold text-dark-bg font-bold py-3 rounded-lg hover:bg-gold-hover transition-colors shadow-md"
