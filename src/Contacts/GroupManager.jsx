@@ -250,6 +250,9 @@ const GroupsManager = () => {
         )}
       </div>
 
+      {/* Extra Spacer for Mobile Bottom Nav */}
+      <div className="h-24 md:hidden"></div>
+
       {/* Modal for Create/Edit Group */}
       <Modal
         isOpen={isModalOpen}

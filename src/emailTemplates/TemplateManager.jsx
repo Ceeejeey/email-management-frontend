@@ -290,6 +290,14 @@ const TemplateManager = () => {
         )}
       </div>
 
+      {/* Extra Spacer for Mobile Bottom Nav */}
+      <div className="h-24 md:hidden"></div>
+    </div>
+  );
+};
+
+export default TemplateManager;
+
       {isSendModalOpen && (
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
           <div className="bg-card-bg rounded-2xl shadow-2xl w-full max-w-5xl h-[90vh] flex flex-col md:flex-row overflow-hidden border border-gray-800">

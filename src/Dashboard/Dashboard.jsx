@@ -175,13 +175,13 @@ const Dashboard = () => {
             {activeTab === 'contacts' && <ContactsManager />}
 
             {activeTab === 'groups' && (
-              <div className="h-full">
+              <div>
                 <GroupsManager />
               </div>
             )}
 
             {activeTab === 'templates' && (
-              <div className="h-full">
+              <div>
                 <TemplateManager />
               </div>
             )}
