@@ -31,7 +31,14 @@ const HomePage = () => {
 
         <div className="mt-12">
           <button 
-            onClick={() => navigate('/signin')}
+            onClick={() => {
+              const token = localStorage.getItem('accessToken');
+              if (token) {
+                navigate('/dashboard');
+              } else {
+                navigate('/signin');
+              }
+            }}
             className="bg-gold text-dark-bg font-bold py-3 px-8 rounded-full text-lg hover:bg-gold-hover transition-transform transform hover:scale-105 shadow-xl"
           >
             Get Started

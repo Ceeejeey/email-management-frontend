@@ -6,6 +6,7 @@ import SignInPage from './components/SignInPage';
 import VerifyEmail from './components/VerifyEmail';
 import Dashboard from './Dashboard/Dashboard';
 import ProfilePage from './profile/profile';
+import ProtectedRoute from './components/ProtectedRoute';
 
 const App = () => {
   return (
@@ -14,8 +15,22 @@ const App = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/signin" element={<SignInPage />} />
         <Route path="/verify-email" element={<VerifyEmail />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/profile" element={<ProfilePage />} />
+        <Route 
+          path="/dashboard" 
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/profile" 
+          element={
+            <ProtectedRoute>
+              <ProfilePage />
+            </ProtectedRoute>
+          } 
+        />
       </Routes>
     </Router>
   );
