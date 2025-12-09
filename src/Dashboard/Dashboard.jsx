@@ -136,33 +136,8 @@ const Dashboard = () => {
           setIsMobileMenuOpen={setIsMobileMenuOpen}
         />
 
-        {/* Mobile Tab Bar (Visible only on small screens) */}
-        <div className="md:hidden fixed bottom-0 left-0 right-0 bg-card-bg border-t border-gray-800 flex justify-around p-2 z-40 pb-safe">
-           <button 
-             className={`p-2 rounded-lg flex flex-col items-center gap-1 ${activeTab === 'contacts' ? 'text-gold' : 'text-gray-400'}`}
-             onClick={() => setActiveTab('contacts')}
-           >
-             <Users size={20} />
-             <span className="text-[10px]">Contacts</span>
-           </button>
-           <button 
-             className={`p-2 rounded-lg flex flex-col items-center gap-1 ${activeTab === 'groups' ? 'text-gold' : 'text-gray-400'}`}
-             onClick={() => setActiveTab('groups')}
-           >
-             <Layers size={20} />
-             <span className="text-[10px]">Groups</span>
-           </button>
-           <button 
-             className={`p-2 rounded-lg flex flex-col items-center gap-1 ${activeTab === 'templates' ? 'text-gold' : 'text-gray-400'}`}
-             onClick={() => setActiveTab('templates')}
-           >
-             <FileText size={20} />
-             <span className="text-[10px]">Templates</span>
-           </button>
-        </div>
-
         {/* Main Content */}
-        <main className="flex-1 overflow-y-auto p-4 md:p-8 pb-32 md:pb-8 w-full relative">
+        <main className="flex-1 overflow-y-auto p-4 md:p-8 w-full relative">
           {/* Overlay for mobile when sidebar is open */}
           {isMobileMenuOpen && (
             <div 
