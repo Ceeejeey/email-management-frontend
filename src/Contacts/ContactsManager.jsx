@@ -81,7 +81,8 @@ const ContactsManager = () => {
         </button>
       </div>
 
-            <div className="overflow-x-auto">
+            {/* Desktop Table View */}
+      <div className="hidden md:block overflow-x-auto">
         <table className="w-full text-left border-collapse min-w-[600px]">
           <thead>
             <tr className="border-b border-gray-700">
@@ -121,6 +122,40 @@ const ContactsManager = () => {
             )}
           </tbody>
         </table>
+      </div>
+
+      {/* Mobile Card View */}
+      <div className="md:hidden space-y-4">
+        {contacts.length > 0 ? (
+          contacts.map((contact) => (
+            <div key={contact.id} className="bg-dark-bg p-4 rounded-lg border border-gray-700 shadow-sm">
+              <div className="flex justify-between items-start mb-2">
+                <div>
+                  <h3 className="text-gold font-semibold text-lg">{contact.name}</h3>
+                  <p className="text-gray-400 text-sm break-all">{contact.email}</p>
+                </div>
+              </div>
+              <div className="flex justify-end gap-3 mt-3 pt-3 border-t border-gray-700">
+                <button 
+                  onClick={() => handleEditContact(contact)}
+                  className="text-blue-400 hover:text-blue-300 text-sm font-medium px-2 py-1"
+                >
+                  Edit
+                </button>
+                <button 
+                  onClick={() => handleDeleteContact(contact.id)}
+                  className="text-red-400 hover:text-red-300 text-sm font-medium px-2 py-1"
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          ))
+        ) : (
+          <div className="p-8 text-center text-gray-500 bg-dark-bg rounded-lg border border-gray-700">
+            No contacts found. Start by adding one above!
+          </div>
+        )}
       </div>
     </div>
   );

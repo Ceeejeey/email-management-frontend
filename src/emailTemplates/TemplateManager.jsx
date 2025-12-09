@@ -207,8 +207,8 @@ const TemplateManager = () => {
         {editTemplateId ? 'Update Template' : 'Save Template'}
       </button>
 
-      {/* Templates Table */}
-      <div className="overflow-x-auto">
+      {/* Templates List - Desktop Table */}
+      <div className="hidden md:block overflow-x-auto">
         <table className="w-full text-left border-collapse min-w-[500px]">
           <thead>
             <tr className="border-b border-gray-700">
@@ -250,6 +250,44 @@ const TemplateManager = () => {
             )}
           </tbody>
         </table>
+      </div>
+
+      {/* Templates List - Mobile Card View */}
+      <div className="md:hidden space-y-4">
+        {templates.length > 0 ? (
+          templates.map((template) => (
+            <div key={template.id} className="bg-dark-bg p-4 rounded-lg border border-gray-700 shadow-sm">
+              <div className="mb-3">
+                <h3 className="text-gold font-semibold text-lg">{template.name}</h3>
+              </div>
+              
+              <div className="flex justify-end gap-3 pt-3 border-t border-gray-700">
+                <button 
+                  onClick={() => handleEditTemplate(template)} 
+                  className="text-blue-400 hover:text-blue-300 text-sm font-medium px-2 py-1"
+                >
+                  Edit
+                </button>
+                <button 
+                  onClick={() => handleDeleteTemplate(template.id)} 
+                  className="text-red-400 hover:text-red-300 text-sm font-medium px-2 py-1"
+                >
+                  Delete
+                </button>
+                <button 
+                  onClick={() => handleSendTemplate(template)} 
+                  className="text-green-400 hover:text-green-300 text-sm font-medium px-2 py-1"
+                >
+                  Send
+                </button>
+              </div>
+            </div>
+          ))
+        ) : (
+          <div className="p-8 text-center text-gray-500 bg-dark-bg rounded-lg border border-gray-700">
+            No templates available.
+          </div>
+        )}
       </div>
 
       {isSendModalOpen && (

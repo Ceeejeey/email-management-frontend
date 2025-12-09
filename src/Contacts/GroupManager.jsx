@@ -159,8 +159,8 @@ const GroupsManager = () => {
         Create Group
       </button>
 
-      {/* Groups List */}
-      <div className="overflow-x-auto">
+      {/* Groups List - Desktop Table */}
+      <div className="hidden md:block overflow-x-auto">
         <table className="w-full text-left border-collapse min-w-[700px]">
           <thead>
             <tr className="border-b border-gray-700">
@@ -206,6 +206,48 @@ const GroupsManager = () => {
             )}
           </tbody>
         </table>
+      </div>
+
+      {/* Groups List - Mobile Card View */}
+      <div className="md:hidden space-y-4">
+        {groups.length > 0 ? (
+          groups.map((group) => (
+            <div key={group.id} className="bg-dark-bg p-4 rounded-lg border border-gray-700 shadow-sm">
+              <div className="mb-3">
+                <h3 className="text-gold font-semibold text-lg">{group.name}</h3>
+                <p className="text-gray-400 text-sm mt-1">{group.description || 'No description'}</p>
+              </div>
+              
+              <div className="mb-4">
+                <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Contacts</h4>
+                <p className="text-gray-300 text-sm">
+                  {group.contacts && group.contacts.length > 0
+                    ? group.contacts.map((c) => c.name).join(', ')
+                    : 'No contacts'}
+                </p>
+              </div>
+
+              <div className="flex justify-end gap-3 pt-3 border-t border-gray-700">
+                <button 
+                  onClick={() => handleEditGroup(group)}
+                  className="text-blue-400 hover:text-blue-300 text-sm font-medium px-2 py-1"
+                >
+                  Edit
+                </button>
+                <button 
+                  onClick={() => handleDeleteGroup(group.id)}
+                  className="text-red-400 hover:text-red-300 text-sm font-medium px-2 py-1"
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          ))
+        ) : (
+          <div className="p-8 text-center text-gray-500 bg-dark-bg rounded-lg border border-gray-700">
+            No groups available.
+          </div>
+        )}
       </div>
 
       {/* Modal for Create/Edit Group */}
