@@ -155,7 +155,7 @@ const TemplateManager = () => {
   };
 
   return (
-    <div className="p-4 md:p-6 bg-card-bg rounded-xl shadow-lg border border-gray-800">
+    <div className="p-4 md:p-6 bg-card-bg rounded-xl shadow-lg border border-gray-800 mb-20">
       <h2 className="text-2xl font-bold text-gold mb-2">Template Manager</h2>
       <p className="text-gray-400 mb-6">Upload, edit, view, or delete templates.</p>
 
